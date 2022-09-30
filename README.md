@@ -92,7 +92,8 @@ Authenticate the user with the system and obtain the auth_token
             200
         </td>
         <td> 
-            {<br> "token": "2|oqPq4eAElD0dj5JdM0pwIEMGsCtn06q6yQenTCq9",<br>
+            {<br> "token": "1|mwIpmBWyBSvzLkco5v0bmJGHLhgMYXBXYK3conAC"
+            <br>
 	"message": "Login Successfully" <br>}
     <br>
     <br>
