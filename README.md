@@ -103,7 +103,7 @@ Authenticate the user with the system and obtain the auth_token
 </table>
 <br>
 
-### Get Data
+### Get Data Boats
 
 <li>Request</li>
 <table border=1>
@@ -157,16 +157,6 @@ Authenticate the user with the system and obtain the auth_token
         </td>
         <td> 
             application/json
-        </td>
-    <tr>
-        <td> 
-            <p></p>
-        </td>
-        <td> 
-            "name"
-        </td>
-        <td> 
-            "iphone"
         </td>
     </tr>
 </table>

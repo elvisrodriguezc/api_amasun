@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
+use App\Models\Booking;
 use App\Models\User;
-use App\Models\boat;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class BoatPolicy
+class BookingPolicy
 {
     use HandlesAuthorization;
 
@@ -25,10 +25,10 @@ class BoatPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\boat  $boat
+     * @param  \App\Models\Booking  $booking
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, boat $boat)
+    public function view(User $user, Booking $booking)
     {
         //
     }
@@ -48,10 +48,10 @@ class BoatPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\boat  $boat
+     * @param  \App\Models\Booking  $booking
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, boat $boat)
+    public function update(User $user, Booking $booking)
     {
         //
     }
@@ -60,10 +60,10 @@ class BoatPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\boat  $boat
+     * @param  \App\Models\Booking  $booking
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, boat $boat)
+    public function delete(User $user, Booking $booking)
     {
         //
     }
@@ -72,10 +72,10 @@ class BoatPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\boat  $boat
+     * @param  \App\Models\Booking  $booking
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, boat $boat)
+    public function restore(User $user, Booking $booking)
     {
         //
     }
@@ -84,10 +84,10 @@ class BoatPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\boat  $boat
+     * @param  \App\Models\Booking  $booking
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, boat $boat)
+    public function forceDelete(User $user, Booking $booking)
     {
         //
     }

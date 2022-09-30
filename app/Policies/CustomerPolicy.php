@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
+use App\Models\Customer;
 use App\Models\User;
-use App\Models\departure;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class DeparturePolicy
+class CustomerPolicy
 {
     use HandlesAuthorization;
 
@@ -25,10 +25,10 @@ class DeparturePolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\departure  $departure
+     * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, departure $departure)
+    public function view(User $user, Customer $customer)
     {
         //
     }
@@ -48,10 +48,10 @@ class DeparturePolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\departure  $departure
+     * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, departure $departure)
+    public function update(User $user, Customer $customer)
     {
         //
     }
@@ -60,10 +60,10 @@ class DeparturePolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\departure  $departure
+     * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, departure $departure)
+    public function delete(User $user, Customer $customer)
     {
         //
     }
@@ -72,10 +72,10 @@ class DeparturePolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\departure  $departure
+     * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, departure $departure)
+    public function restore(User $user, Customer $customer)
     {
         //
     }
@@ -84,10 +84,10 @@ class DeparturePolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\departure  $departure
+     * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, departure $departure)
+    public function forceDelete(User $user, Customer $customer)
     {
         //
     }
