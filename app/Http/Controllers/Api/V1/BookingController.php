@@ -1,10 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\V1;
 
-use App\Http\Requests\StoreBookingRequest;
-use App\Http\Requests\UpdateBookingRequest;
+use App\Http\Controllers\Controller;
 use App\Models\Booking;
+use Illuminate\Http\Request;
+
+use App\Http\Resources\V1\BookingResource;
+use App\Http\Resources\V1\BookingCollection;
 
 class BookingController extends Controller
 {
@@ -15,16 +18,16 @@ class BookingController extends Controller
      */
     public function index()
     {
-        //
+        return new BookingCollection(Booking::latest()->paginate());
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreBookingRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreBookingRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -37,17 +40,17 @@ class BookingController extends Controller
      */
     public function show(Booking $booking)
     {
-        //
+        return new BookingResource($booking);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateBookingRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Booking  $booking
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateBookingRequest $request, Booking $booking)
+    public function update(Request $request, Booking $booking)
     {
         //
     }

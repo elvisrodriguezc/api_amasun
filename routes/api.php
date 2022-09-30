@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\V1\BoatController as BoatV1;
 use App\Http\Controllers\Api\V1\LocationController as LocationV1;
 use App\Http\Controllers\Api\V1\ServiceController as ServiceV1;
 use App\Http\Controllers\Api\V1\DepartureController as DepartureV1;
+use App\Http\Controllers\Api\V1\BookingController as BookingV1;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
@@ -25,6 +26,10 @@ Route::apiResource('v1/services', ServiceV1::class)
     ->middleware('auth:sanctum');
 
 Route::apiResource('v1/departures', DepartureV1::class)
+    ->only(['index','show'])
+    ->middleware('auth:sanctum');
+
+Route::apiResource('v1/bookings', BookingV1::class)
     ->only(['index','show'])
     ->middleware('auth:sanctum');
 
