@@ -64,17 +64,6 @@ Authenticate the user with the system and obtain the auth_token
         <td> 
             "password"
         </td>
-    <tr>
-        <td> 
-            <p></p>
-        </td>
-        <td> 
-            "name"
-        </td>
-        <td> 
-            "iphone"
-        </td>
-    </tr>
 </table>
 
 <li>Response</li>

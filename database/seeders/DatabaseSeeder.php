@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
         // \App\Models\Location::factory(10)->create();
         // \App\Models\Boat::factory(10)->create();
         // \App\Models\Service::factory(10)->create();
-        \App\Models\Departure::factory(10)->create();
+        // \App\Models\Departure::factory(10)->create();
+        // \App\Models\Document::factory(10)->create();
         // \App\Models\Customer::factory(10)->create();
         \App\Models\Booking::factory(10)->create();
     }

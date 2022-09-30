@@ -15,11 +15,15 @@ class CreateCustomersTable extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('document_id');
+            $table->string('document_number',15);
             $table->string('first_name');
             $table->string('last_name');
             $table->string('email')->unique();
             $table->string('phone');
             $table->timestamps();
+            $table->foreign('document_id')->references('id')->on('documents')->onDelete('cascade');
+
         });
     }
 
