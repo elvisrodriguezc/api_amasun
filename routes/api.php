@@ -14,23 +14,23 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('v1/locations', LocationV1::class)
-    ->only(['index','show'])
+    ->only(['index','show','store','update','destroy'])
     ->middleware('auth:sanctum');
 
 Route::apiResource('v1/boats', BoatV1::class)
-    ->only(['index','show'])
+    ->only(['index','show','store','update','destroy'])
     ->middleware('auth:sanctum');
 
 Route::apiResource('v1/services', ServiceV1::class)
-    ->only(['index','show'])
+    ->only(['index','show','store','update','destroy'])
     ->middleware('auth:sanctum');
 
 Route::apiResource('v1/departures', DepartureV1::class)
-    ->only(['index','show'])
+    ->only(['index','show','store','update','destroy'])
     ->middleware('auth:sanctum');
 
 Route::apiResource('v1/bookings', BookingV1::class)
-    ->only(['index','show'])
+    ->only(['index','show','store','update','destroy'])
     ->middleware('auth:sanctum');
 
 Route::post('login',[

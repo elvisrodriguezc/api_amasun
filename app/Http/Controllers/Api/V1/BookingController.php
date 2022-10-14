@@ -29,7 +29,11 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return (new BookingResource(Booking::create($request->all())))
+        ->additional([
+            'msg'=>'Booking successfull stored',
+            'Error'=>0,
+        ]);
     }
 
     /**

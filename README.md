@@ -103,6 +103,7 @@ Authenticate the user with the system and obtain the auth_token
         <th>
             EndPoint
         </th>
+        <th></th>
     </tr>
     <tr>
         <td> 
@@ -112,9 +113,64 @@ Authenticate the user with the system and obtain the auth_token
             api/v1/boats<br>
             api/v1/boats/[id]
         </td>
+        <td>
+        <table border=1>
+    <tr>
+        <th>
+            Type
+        </th>
+        <th>
+            Params
+        </th>
+        <th>
+            Values
+        </th>
+    </tr>
+    <tr>
+        <td> 
+            HEADERS
+        </td>
+        <td> 
+            Authorization
+        </td>
+        <td> 
+            [token]
+        </td>
+    </tr>
+    <tr>
+        <td> 
+            <p></p>
+        </td>
+        <td> 
+            Accept
+        </td>
+        <td> 
+            application/json
+        </td>
+    </tr>
+    <tr>
+        <td> 
+            <p></p>
+        </td>
+        <td> 
+            Content-Type
+        </td>
+        <td> 
+            application/json
+        </td>
     </tr>
 </table>
-<table border=1>
+        </td>
+    </tr>
+    <tr>
+        <td> 
+            POST
+        </td>
+        <td> 
+            api/v1/boats
+        </td>
+        <td>
+        <table border=1>
     <tr>
         <th>
             Type
@@ -149,6 +205,10 @@ Authenticate the user with the system and obtain the auth_token
         </td>
     </tr>
 </table>
+        </td>
+    </tr>
+</table>
+
 
 <li>Response</li>
 <table border=1>

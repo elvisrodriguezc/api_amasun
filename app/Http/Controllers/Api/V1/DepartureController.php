@@ -76,7 +76,11 @@ class DepartureController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return (new DepartureResource(Departure::create($request->all())))
+        ->additional([
+            'msg'=>'Departure successfull stored',
+            'Error'=>0,
+        ]);
     }
 
     /**

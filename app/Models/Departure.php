@@ -7,7 +7,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Departure extends Model
 {
-    use HasFactory;
+
+    protected $fillable = [
+        'departure_id',
+        'customer_id',
+        'date',
+        'time',
+        'payment_code',
+        'payment_datetime',
+        'adults',
+        'childs',
+        'status'
+    ];
+
+     use HasFactory;
 
     public function user()
     {

@@ -7,6 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Booking extends Model
 {
+    protected $fillable = [
+        'departure_id',
+        'customer_id',
+        'date',
+        'time',
+        'payment_code',
+        'payment_datetime',
+        'adults',
+        'childs',
+        'status'
+    ];
+
     use HasFactory;
 
     public function customer()

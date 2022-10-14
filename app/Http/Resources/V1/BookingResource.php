@@ -17,11 +17,11 @@ class BookingResource extends JsonResource
         return [
             'id' => $this->id,
             'departure' => [
-               'departure_id'=>$this->departure->id,
-               'departure_date'=>$this->departure->depart_date,
-               'departure_time'=>$this->departure->depart_time,
-               'price_adult'=>$this->departure->price_adult,
-               'price_child'=>$this->departure->price_child,
+                'departure_id'=>$this->departure->id,
+                'departure_date'=>$this->departure->depart_date,
+                'departure_time'=>$this->departure->depart_time,
+                'price_adult'=>$this->departure->price_adult,
+                'price_child'=>$this->departure->price_child,
             ],
             'customer'=> [
                 'customer_id'=>$this->customer->id,
@@ -40,6 +40,13 @@ class BookingResource extends JsonResource
             'adults' => $this->adults,
             'childs' => $this->childs,
             'status' => $this->status,
+        ];
+    }
+
+    public function with($request)
+    {
+        return [
+            'res' => true
         ];
     }
 }
