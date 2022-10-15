@@ -18,7 +18,7 @@ class BoatResource extends JsonResource
             'id' => (int)$this->id,
             'location_id'=>$this->location_id,
             'location' => $this->location->name,
-            'boat_name'=>$this->name,
+            'name'=>$this->name,
             'seatscount'=>$this->seatscount,
             'price_adult'=>$this->price_adult,
             'price_child'=>$this->price_child,

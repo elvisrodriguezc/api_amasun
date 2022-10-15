@@ -13,7 +13,7 @@ class UpdateBoatRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,13 @@ class UpdateBoatRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'location_id',
+            'name',
+            'seatscount',
+            'price_adult',
+            'price_child',
+            'image',
+            'status'
         ];
     }
 }

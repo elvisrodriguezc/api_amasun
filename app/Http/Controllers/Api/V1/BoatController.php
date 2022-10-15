@@ -5,11 +5,11 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Controllers\Controller;
 use App\Models\Boat;
 use Illuminate\Http\Request;
-use App\Http\Requests\StoreBoatRequest;
 
 use App\Http\Resources\V1\BoatResource;
-use App\Http\Request\V1\UpdateboatRequest;
 use App\Http\Resources\V1\BoatCollection;
+use App\Http\Requests\V1\StoreBoatRequest;
+use App\Http\Requests\V1\UpdateBoatRequest;
 
 class BoatController extends Controller
 {
@@ -29,8 +29,9 @@ class BoatController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreBoatRequest $request)
     {
+        Boat::create($request->all());
         return (new BoatResource(Boat::create($request->all())))
         ->additional([
             'msg'=>'Boat successfull stored',
@@ -46,7 +47,11 @@ class BoatController extends Controller
      */
     public function show(Boat $boat)
     {
-        return new BoatResource($boat);
+        return (new BoatResource($boat))
+        ->additional([
+            'msg'=>'Resourse Boat successfull',
+            'Error'=>0,
+        ]);
     }
 
     /**
@@ -56,10 +61,14 @@ class BoatController extends Controller
      * @param  \App\Models\Boat  $boat
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateboatRequest $request, Boat $boat)
+    public function update(UpdateBoatRequest $request, Boat $boat)
     {
         $boat->update($request->all());
-        return new BoatResource($boat);
+        return (new BoatResource($boat))
+        ->additional([
+            'msg'=>'Boat successfull Updated',
+            'Error'=>0,
+        ]);
     }
 
     /**
