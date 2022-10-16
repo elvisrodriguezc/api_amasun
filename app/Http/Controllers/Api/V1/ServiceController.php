@@ -32,7 +32,7 @@ class ServiceController extends Controller
      */
     public function store(StoreServiceRequest $request)
     {
-        Service::create($request->all());
+        // Service::create($request->all());
         return (new ServiceResource(Service::create($request->all())))
         ->additional([
             'msg'=>'Service successfull stored',

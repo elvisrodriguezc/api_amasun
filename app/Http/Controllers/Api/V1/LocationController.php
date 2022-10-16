@@ -31,7 +31,7 @@ class LocationController extends Controller
      */
     public function store(StoreLocationRequest $request)
     {
-        Location::create($request->all());
+        // Location::create($request->all());
         return (new LocationResource(Location::create($request->all())))
         ->additional([
             'msg'=>'Location successfull stored',

@@ -31,7 +31,7 @@ class BoatController extends Controller
      */
     public function store(StoreBoatRequest $request)
     {
-        Boat::create($request->all());
+        // Boat::create($request->all());
         return (new BoatResource(Boat::create($request->all())))
         ->additional([
             'msg'=>'Boat successfull stored',
