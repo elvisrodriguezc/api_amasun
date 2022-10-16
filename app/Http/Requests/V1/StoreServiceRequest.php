@@ -13,7 +13,7 @@ class StoreServiceRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,16 @@ class StoreServiceRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "location_id"=>"required",
+            "name"=>"required|unique:services,name",
+            "duration"=>"required",
+            "image"=>"required",
+            "price_adult"=>"required",
+            "price_child"=>"required",
+            "about"=>"required",
+            "includes"=>"required",
+            "recommendations"=>"required",
+            "status"=>"required",
         ];
     }
 }

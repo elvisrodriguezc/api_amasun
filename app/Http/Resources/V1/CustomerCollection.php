@@ -4,7 +4,7 @@ namespace App\Http\Resources\V1;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
-class DepartureCollection extends ResourceCollection
+class CustomerCollection extends ResourceCollection
 {
     /**
      * Transform the resource collection into an array.
@@ -19,6 +19,6 @@ class DepartureCollection extends ResourceCollection
             'meta'=> [
                 'organization' => 'Amasun',
             ],
-        ];;
+        ];
     }
 }

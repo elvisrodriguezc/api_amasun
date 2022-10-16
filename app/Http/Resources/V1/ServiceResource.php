@@ -29,4 +29,10 @@ class ServiceResource extends JsonResource
             'status' => $this->status,
         ];
     }
+    public function with($request)
+    {
+        return [
+            'res' => true
+        ];
+    }
 }

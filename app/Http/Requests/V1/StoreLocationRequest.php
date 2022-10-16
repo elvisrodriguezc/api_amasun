@@ -13,7 +13,7 @@ class StoreLocationRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,9 @@ class StoreLocationRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "name"=>"required|unique:locations,name",
+            "description"=>"required",
+            "status"=>"required"
         ];
     }
 }

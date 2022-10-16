@@ -13,7 +13,7 @@ class StoreDepartureRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,17 @@ class StoreDepartureRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "user_id"=>"required",
+            "boat_id"=>"required",
+            "service_id"=>"required",
+            "location_id"=>"required",
+            "depart_date"=>"required",
+            "depart_time"=>"required",
+            "seats_enable"=>"required",
+            "duration"=>"required",
+            "price_adult"=>"required",
+            "price_child"=>"required",
+            "status"=>"required",
         ];
     }
 }

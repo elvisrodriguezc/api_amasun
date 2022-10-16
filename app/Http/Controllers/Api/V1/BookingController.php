@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Resources\V1\BookingResource;
 use App\Http\Resources\V1\BookingCollection;
+use App\Http\Requests\V1\StoreBookingRequest;
+use App\Http\Requests\V1\UpdateBookingRequest;
 
 class BookingController extends Controller
 {
@@ -18,7 +20,11 @@ class BookingController extends Controller
      */
     public function index()
     {
-        return new BookingCollection(Booking::latest()->paginate());
+        (new BookingCollection(Booking::latest()->paginate()))
+        ->additional([
+            'msg'=>'Booking successful listed',
+            'Error'=>0,
+        ]);
     }
 
     /**
@@ -27,11 +33,12 @@ class BookingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreBookingRequest $request)
     {
+        Booking::create($request->all());
         return (new BookingResource(Booking::create($request->all())))
         ->additional([
-            'msg'=>'Booking successfull stored',
+            'msg'=>'Booking successful stored',
             'Error'=>0,
         ]);
     }
@@ -44,7 +51,11 @@ class BookingController extends Controller
      */
     public function show(Booking $booking)
     {
-        return new BookingResource($booking);
+        return (new BookingResource($booking))
+        ->additional([
+            'msg'=>'Resourse Booking successful',
+            'Error'=>0,
+        ]);
     }
 
     /**
@@ -54,9 +65,14 @@ class BookingController extends Controller
      * @param  \App\Models\Booking  $booking
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Booking $booking)
+    public function update(UpdateBookingRequest $request, Booking $booking)
     {
-        //
+        $booking->update($request->all());
+        return (new BookingResource($booking))
+        ->additional([
+            'msg'=>'Booking successful Updated',
+            'Error'=>0,
+        ]);
     }
 
     /**
@@ -67,6 +83,11 @@ class BookingController extends Controller
      */
     public function destroy(Booking $booking)
     {
-        //
+        $booking->delete();
+        return (new BookingResource($booking))
+        ->additional([
+            'msg'=>'Booking successful deleted',
+            'Error'=>0,
+        ]);
     }
 }

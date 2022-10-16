@@ -9,14 +9,16 @@ class Departure extends Model
 {
 
     protected $fillable = [
-        'departure_id',
-        'customer_id',
-        'date',
-        'time',
-        'payment_code',
-        'payment_datetime',
-        'adults',
-        'childs',
+        'user_id',
+        'boat_id',
+        'service_id',
+        'location_id',
+        'depart_date',
+        'depart_time',
+        'seats_enable',
+        'duration',
+        'price_adult',
+        'price_child',
         'status'
     ];
 

@@ -4,10 +4,12 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
 use App\Models\Location;
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
 
 use App\Http\Resources\V1\LocationResource;
 use App\Http\Resources\V1\LocationCollection;
+use App\Http\Requests\V1\StoreLocationRequest;
+use App\Http\Requests\V1\UpdateLocationRequest;
 
 class LocationController extends Controller
 {
@@ -27,9 +29,14 @@ class LocationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreLocationRequest $request)
     {
-        //
+        Location::create($request->all());
+        return (new LocationResource(Location::create($request->all())))
+        ->additional([
+            'msg'=>'Location successfull stored',
+            'Error'=>0,
+        ]);
     }
 
     /**
@@ -40,7 +47,11 @@ class LocationController extends Controller
      */
     public function show(Location $location)
     {
-        return new LocationResource($location);
+        return (new LocationResource($location))
+        ->additional([
+            'msg'=>'Resourse Location successfull',
+            'Error'=>0,
+        ]);
     }
 
     /**
@@ -50,9 +61,14 @@ class LocationController extends Controller
      * @param  \App\Models\Location  $location
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Location $location)
+    public function update(UpdateLocationRequest $request, Location $location)
     {
-        //
+        $location->update($request->all());
+        return (new LocationResource($location))
+        ->additional([
+            'msg'=>'Location successfull Updated',
+            'Error'=>0,
+        ]);
     }
 
     /**
@@ -63,6 +79,11 @@ class LocationController extends Controller
      */
     public function destroy(Location $location)
     {
-        //
+        $location->delete();
+        return (new LocationResource($location))
+        ->additional([
+            'msg'=>'Location successfull deleted',
+            'Error'=>0,
+        ]);
     }
 }

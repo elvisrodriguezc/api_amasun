@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Resources\V1\DepartureResource;
 use App\Http\Resources\V1\DepartureCollection;
+use App\Http\Requests\V1\StoreDepartureRequest;
+use App\Http\Requests\V1\UpdateDepartureRequest;
 
 class DepartureController extends Controller
 {
@@ -74,11 +76,12 @@ class DepartureController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreDepartureRequest $request)
     {
+        Departure::create($request->all());
         return (new DepartureResource(Departure::create($request->all())))
         ->additional([
-            'msg'=>'Departure successfull stored',
+            'msg'=>'Departure successful stored',
             'Error'=>0,
         ]);
     }
@@ -91,7 +94,11 @@ class DepartureController extends Controller
      */
     public function show(Departure $departure)
     {
-        return new DepartureResource($departure);
+        return (new DepartureResource($departure))
+        ->additional([
+            'msg'=>'Resourse Departure successful',
+            'Error'=>0,
+        ]);
     }
 
     /**
@@ -101,9 +108,14 @@ class DepartureController extends Controller
      * @param  \App\Models\Departure  $departure
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Departure $departure)
+    public function update(UpdateDepartureRequest $request, Departure $departure)
     {
-        //
+        $departure->update($request->all());
+        return (new DepartureResource($departure))
+        ->additional([
+            'msg'=>'Departure successful Updated',
+            'Error'=>0,
+        ]);
     }
 
     /**
@@ -114,6 +126,11 @@ class DepartureController extends Controller
      */
     public function destroy(Departure $departure)
     {
-        //
+        $departure->delete();
+        return (new DepartureResource($departure))
+        ->additional([
+            'msg'=>'Departure successful deleted',
+            'Error'=>0,
+        ]);
     }
 }

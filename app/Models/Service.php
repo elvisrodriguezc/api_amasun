@@ -7,6 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Service extends Model
 {
+    protected $fillable = [
+        'location_id',
+        'name',
+        'duration',
+        'image',
+        'price_adult',
+        'price_child',
+        'about',
+        'includes',
+        'recommendations',
+        'status',
+    ];
     use HasFactory;
     public function location()
     {
