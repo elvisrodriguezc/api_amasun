@@ -18,13 +18,29 @@ class BookingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        (new BookingCollection(Booking::latest()->paginate()))
-        ->additional([
-            'msg'=>'Booking successful listed',
-            'Error'=>0,
-        ]);
+        // return (new BookingCollection(Booking::latest()->paginate()))
+        // ->additional([
+        //     'msg'=>'Booking successful listed',
+        //     'Error'=>0,
+        // ]);
+        $Booking_query = Booking::latest();
+        if ($request->departure_id){
+            $Booking_query
+            ->where('departure_id',$request->departure_id)
+            ->where('status','1');
+            $Bookings = $Booking_query->get([
+                'id',
+                'adults',
+                'childs',
+            ]);
+        } else {
+            $Bookings = new BookingCollection(Booking::latest()->paginate());
+        }
+        return response()->json([
+            'data'=> $Bookings,
+        ],200);
     }
 
     /**
