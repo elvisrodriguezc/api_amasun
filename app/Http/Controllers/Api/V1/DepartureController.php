@@ -23,25 +23,30 @@ class DepartureController extends Controller
         // return new DepartureCollection(Departure::latest()->paginate());
         $Departure_query = Departure::latest();
         if ($request->date){
-            $Departure_query->where('depart_date',$request->date)
-            ->where('status','1');
+            $Departure_query
+                ->where('depart_date',$request->date)
+                ->where('status',$request->status);
             $Departures = $Departure_query->get(['depart_time']);
             if (isset($request->time)){
-                $Departure_query = Departure::with(['location','boat','service']);
-                $Departure_query->where('depart_date',$request->date)
-                ->where('depart_time',$request->time);
-                $Departures = $Departure_query->get();
-                if (isset($request->boat_id)){
+                // $Departure_query = Departure::with(['location','boat','service']);
                 $Departure_query = Departure::with(['location','boat','service']);
                 $Departure_query
                     ->where('depart_date',$request->date)
                     ->where('depart_time',$request->time)
-                    ->where('boat_id',$request->boat_id);
+                    ->where('status',$request->status);
+                $Departures = $Departure_query->get();
+                if (isset($request->boat_id)){
+                    $Departure_query = Departure::with(['location','boat','service']);
+                    $Departure_query
+                        ->where('depart_date',$request->date)
+                        ->where('depart_time',$request->time)
+                        ->where('boat_id',$request->boat_id)
+                        ->where('status',$request->status);
                     $Departures = $Departure_query->get();
                 }
             }
         } else {
-            $Departures = "";
+            $Departures = new DepartureCollection(Departure::latest()->paginate());
         }
         // if ($request->sortBy && in_array($request->sortBy,['id','created_at'])){
         //     $sortBy = $request->sortBy;

@@ -16,14 +16,29 @@ class DepartureResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'user_id'=>$this->user_id,
-            'user'=>$this->user->name,
-            'boat_id'=>$this->boat_id,
-            'boat'=>$this->boat->name,
-            'service_id'=>$this->service_id,
-            'service'=>$this->service->name,
-            'location_id'=>$this->location_id,
-            'location'=>$this->location->name,
+            'user'=> [
+                'id'=>$this->user->_id,
+                'name'=>$this->user->name,
+            ],
+            'boat' => [
+                'id'=>$this->boat->id,
+                'name'=>$this->boat->name,
+                'seatscount'=>$this->boat->seatscount,
+                'status'=>$this->boat->status,
+            ],
+            'service'=> [
+                'id'=> $this->service->id,
+                'name'=> $this->service->name,
+                'image'=> $this->service->image,
+                'about'=> $this->service->about,
+                'includes'=> $this->service->includes,
+                'recommendations'=> $this->service->recommendations,
+                'status'=> $this->service->status,
+            ],
+            'location'=>[
+                'id'=>$this->location->id,
+                'name'=>$this->location->name,
+            ],
             'depart_date'=>$this->depart_date,
             'depart_time'=>$this->depart_time,
             'seats_enable'=>$this->seats_enable,
