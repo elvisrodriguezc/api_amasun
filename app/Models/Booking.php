@@ -12,8 +12,6 @@ class Booking extends Model
         'customer_id',
         'date',
         'time',
-        'payment_code',
-        'payment_datetime',
         'adults',
         'childs',
         'status'

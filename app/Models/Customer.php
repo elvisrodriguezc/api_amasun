@@ -8,16 +8,34 @@ use Illuminate\Database\Eloquent\Model;
 class Customer extends Model
 {
     protected $fillable = [
-        'document_id',
-        'document_number',
         'first_name',
         'last_name',
-        'email',
+        'document_id',
+        'document_number',
+        'country_code',
         'phone',
+        'email',
+        'departamento_id',
+        'provincia_id',
+        'distrito_id',
+        'address',
+        'remark'
     ];
     use HasFactory;
     public function document()
     {
         return $this->belongsTo(Document::class);
+    }
+    public function departamento()
+    {
+        return $this->belongsTo(Departamento::class);
+    }
+    public function provincia()
+    {
+        return $this->belongsTo(Provincia::class);
+    }
+    public function distrito()
+    {
+        return $this->belongsTo(Distrito::class);
     }
 }

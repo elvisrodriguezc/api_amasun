@@ -16,13 +16,30 @@ class CustomerResource extends JsonResource
     {
         return [
             'id' => (int)$this->id,
-            'document_id'=>$this->document_id,
-            'document' => $this->document->name,
-            'document_number' => $this->document_number,
             'first_name'=>$this->first_name,
             'last_name'=>$this->last_name,
-            'email'=>$this->email,
+            'document' =>[
+                'id' => $this->document->id,
+                'name' => $this->document->name,
+                'number' => $this->document_number,
+            ],
+            'country_code'=>$this->country_code,
             'phone'=>$this->phone,
+            'email'=>$this->email,
+            'departamento'=>[
+                'id' => $this->departamento->id,
+                'name' => $this->departamento->name,
+            ],
+            'provincia'=>[
+                'id' => $this->provincia->id,
+                'name' => $this->provincia->name,
+            ],
+            'distrito'=>[
+                'id' => $this->distrito->id,
+                'name' => $this->distrito->name,
+            ],
+            'address'=>$this->address,
+            'remark'=>$this->remark,
         ];
     }
     public function with($request)

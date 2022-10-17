@@ -24,12 +24,18 @@ class StoreCustomerRequest extends FormRequest
     public function rules()
     {
         return [
-            "document_id"=>"required",
-            "document_number"=>"required|unique:customers,document_number",
             "first_name"=>"required",
             "last_name"=>"required",
+            "document_id"=>"required",
+            "document_number"=>"required|unique:customers,document_number",
             "email"=>"required|unique:customers,email",
-            "phone"=>"required"
+            "phone"=>"required",
+            "country_code",
+            "departamento_id",
+            "provincia_id",
+            "distrito_id",
+            "address",
+            "remark",
         ];
     }
 }

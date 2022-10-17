@@ -14,12 +14,18 @@ class CustomerFactory extends Factory
     public function definition()
     {
         return [
-            'document_id' => $this->faker->numberBetween(1, 4),
-            'document_number' => $this->faker->sentence(1,13),
             'first_name' => $this->faker->name(),
             'last_name' => $this->faker->name(),
-            'email' => $this->faker->unique()->safeEmail(),
+            'document_id' => $this->faker->numberBetween(1, 4),
+            'document_number' => $this->faker->numerify('########'),
+            'country_code'=> $this->faker->numerify('0##'),
             'phone' => $this->faker->phoneNumber,
+            'email' => $this->faker->unique()->safeEmail(),
+            'departamento_id'=> $this->faker->numberBetween(1, 24),
+            'provincia_id'=> $this->faker->numberBetween(1, 100),
+            'distrito_id'=> $this->faker->numberBetween(1, 150),
+            'address' => $this->faker->streetAddress,
+            'remark' => $this->faker->slug,
         ];
     }
 }
