@@ -18,13 +18,22 @@ class PaymentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return (new PaymentCollection(Payment::latest()->paginate()))
-        ->additional([
-            'msg'=>'Payment successful listed',
-            'Error'=>0,
-        ]);
+
+        $Payment_query = Payment::latest();
+        if ($request->booking_id){
+            $Payment_query
+                ->where('booking_id',$request->booking_id);
+            $Payments = $Payment_query->get();
+        } else {
+            $Payments = new PaymentCollection(Payment::latest()->paginate());
+        }
+        return response()->json([
+            // 'message'=>'Departures, successfully fetched',
+            // 'error' => 0,
+            'data' => $Payments,
+        ],200);
     }
 
     /**
