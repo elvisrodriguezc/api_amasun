@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\Boat;
 use Illuminate\Database\Seeder;
 
-class BoatSeeder extends Seeder
+class DiscountSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +13,6 @@ class BoatSeeder extends Seeder
      */
     public function run()
     {
-        Boat::factory(15)->create();
+        //
     }
 }

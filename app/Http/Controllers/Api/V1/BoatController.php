@@ -20,7 +20,11 @@ class BoatController extends Controller
      */
     public function index()
     {
-        return new BoatCollection(Boat::latest()->paginate());
+        return (new BoatCollection(Boat::all()))
+        ->additional([
+            'msg'=>'Boat successful listed',
+            'Error'=>0,
+        ]);
     }
 
     /**
@@ -31,10 +35,9 @@ class BoatController extends Controller
      */
     public function store(StoreBoatRequest $request)
     {
-        // Boat::create($request->all());
         return (new BoatResource(Boat::create($request->all())))
         ->additional([
-            'msg'=>'Boat successfull stored',
+            'msg'=>'Boat successful stored',
             'Error'=>0,
         ]);
     }
@@ -49,7 +52,7 @@ class BoatController extends Controller
     {
         return (new BoatResource($boat))
         ->additional([
-            'msg'=>'Resourse Boat successfull',
+            'msg'=>'Resource Boat successful',
             'Error'=>0,
         ]);
     }
@@ -66,7 +69,7 @@ class BoatController extends Controller
         $boat->update($request->all());
         return (new BoatResource($boat))
         ->additional([
-            'msg'=>'Boat successfull Updated',
+            'msg'=>'Boat successful Updated',
             'Error'=>0,
         ]);
     }
@@ -82,7 +85,7 @@ class BoatController extends Controller
         $boat->delete();
         return (new BoatResource($boat))
         ->additional([
-            'msg'=>'Boat successfull deleted',
+            'msg'=>'Boat successful deleted',
             'Error'=>0,
         ]);
     }

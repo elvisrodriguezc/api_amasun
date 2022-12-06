@@ -62,7 +62,7 @@ class PaymentController extends Controller
     {
         return (new PaymentResource($payment))
         ->additional([
-            'msg'=>'Resourse Payment successful',
+            'msg'=>'Resource Payment successful',
             'Error'=>0,
         ]);
     }

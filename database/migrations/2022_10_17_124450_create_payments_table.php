@@ -17,6 +17,7 @@ class CreatePaymentsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('booking_id');
             $table->unsignedBigInteger('payment_method_id');
+            $table->unsignedBigInteger('discount_id')->nullable();
             $table->string('card_number',25)->nullable();
             $table->string('card_holder_name',50)->nullable();
             $table->string('op_number',20)->nullable();
@@ -27,7 +28,6 @@ class CreatePaymentsTable extends Migration
             $table->float('amount');
             $table->string('currency',10);
             $table->string('description',100);
-            $table->tinyInteger('use_card_points')->nullable();
             $table->timestamps();
             $table->foreign('booking_id')->references('id')->on('bookings')->onDelete('cascade');
             $table->foreign('payment_method_id')->references('id')->on('payment_methods')->onDelete('cascade');

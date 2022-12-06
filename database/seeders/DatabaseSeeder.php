@@ -24,5 +24,6 @@ class DatabaseSeeder extends Seeder
         \App\Models\Distrito::factory(150)->create();
         \App\Models\Customer::factory(10)->create();
         \App\Models\Booking::factory(10)->create();
+        \App\Models\Discount::factory(50)->create();
     }
 }

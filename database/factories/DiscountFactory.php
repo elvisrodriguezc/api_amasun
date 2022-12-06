@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class PaymentFactory extends Factory
+class DiscountFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -14,9 +14,9 @@ class PaymentFactory extends Factory
     public function definition()
     {
         return [
-            'booking_id' => $this->faker->numberBetween(1,20),
-            'payment_method_id' => $this->faker->numberBetween(1,3),
-            'card_number' => $this->faker->numberBetween(1,3),
+            'description' => $this->faker->sentence(4),
+            'amount' => $this->faker->randomNumber(2),
+            'status' => $this->faker->numberBetween(0,1)
         ];
     }
 }

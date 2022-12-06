@@ -50,7 +50,7 @@ class ServiceController extends Controller
     {
         return (new ServiceResource($service))
         ->additional([
-            'msg'=>'Resourse Boat successfull',
+            'msg'=>'Resource Boat successfull',
             'Error'=>0,
         ]);
     }

@@ -69,7 +69,7 @@ class BookingController extends Controller
     {
         return (new BookingResource($booking))
         ->additional([
-            'msg'=>'Resourse Booking successful',
+            'msg'=>'Resource Booking successful',
             'Error'=>0,
         ]);
     }

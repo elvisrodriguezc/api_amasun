@@ -102,7 +102,7 @@
                             <div class="ml-12">
                                 <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
                                     <div class="mt-2">Collection</div>
-                                    <div class="mt-2">Resourse by id</div>
+                                    <div class="mt-2">Resource by id</div>
                                 </div>
                             </div>
                         </div>
@@ -120,7 +120,7 @@
                             <div class="ml-12">
                                 <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
                                     <div class="mt-2">Collection</div>
-                                    <div class="mt-2">Resourse by id</div>
+                                    <div class="mt-2">Resource by id</div>
                                 </div>
                             </div>
                         </div>
@@ -138,7 +138,7 @@
                             <div class="ml-12">
                                 <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
                                     <div class="mt-2">Collection</div>
-                                    <div class="mt-2">Resourse by id</div>
+                                    <div class="mt-2">Resource by id</div>
                                 </div>
                             </div>
                         </div>

@@ -53,7 +53,7 @@ class CustomerController extends Controller
     {
         return (new CustomerResource($customer))
         ->additional([
-            'msg'=>'Resourse Customer successful',
+            'msg'=>'Resource Customer successful',
             'Error'=>0,
         ]);
     }

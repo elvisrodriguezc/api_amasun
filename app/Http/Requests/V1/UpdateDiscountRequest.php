@@ -4,7 +4,7 @@ namespace App\Http\Requests\V1;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateBoatRequest extends FormRequest
+class UpdateDiscountRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,9 @@ class UpdateBoatRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'description',
+            'amount',
+            'status'
         ];
     }
 }

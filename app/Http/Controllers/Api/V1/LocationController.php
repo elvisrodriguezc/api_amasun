@@ -49,7 +49,7 @@ class LocationController extends Controller
     {
         return (new LocationResource($location))
         ->additional([
-            'msg'=>'Resourse Location successfull',
+            'msg'=>'Resource Location successfull',
             'Error'=>0,
         ]);
     }

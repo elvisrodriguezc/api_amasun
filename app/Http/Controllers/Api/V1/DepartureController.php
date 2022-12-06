@@ -101,7 +101,7 @@ class DepartureController extends Controller
     {
         return (new DepartureResource($departure))
         ->additional([
-            'msg'=>'Resourse Departure successful',
+            'msg'=>'Resource Departure successful',
             'Error'=>0,
         ]);
     }

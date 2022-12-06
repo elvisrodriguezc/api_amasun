@@ -28,7 +28,6 @@ class StoreBoatRequest extends FormRequest
             "name"=>"required|unique:boats,name",
             "seatscount"=>"required",
             "price_adult"=>"required",
-            // "dni"=>"required|unique:customers,dni",
             "price_child"=>"required",
             "image"=>"required",
             "status"=>"required"

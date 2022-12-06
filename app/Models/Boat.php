@@ -14,7 +14,7 @@ class Boat extends Model
         'price_adult',
         'price_child',
         'image',
-        'status',
+        'status'
     ];
     use HasFactory;
     public function location()

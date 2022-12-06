@@ -3,6 +3,7 @@
 namespace App\Http\Resources\V1;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Resources\V1\LocationResource;
 
 class BoatResource extends JsonResource
 {
@@ -17,20 +18,15 @@ class BoatResource extends JsonResource
         return [
             'id' => (int)$this->id,
             'location_id'=>$this->location_id,
-            'location' => $this->location->name,
+            'location' => new LocationResource($this->location),
             'name'=>$this->name,
             'seatscount'=>$this->seatscount,
             'price_adult'=>$this->price_adult,
             'price_child'=>$this->price_child,
             'image'=>$this->image,
             'status'=>$this->status,
-        ];
-    }
-
-    public function with($request)
-    {
-        return [
-            'res' => true
+            'created_at'=>$this->created_at->format('Y-m-d H:i:s'),
+            'updated_at'=>$this->updated_at->format('Y-m-d H:i:s'),
         ];
     }
 }
