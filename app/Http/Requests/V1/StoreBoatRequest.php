@@ -24,13 +24,13 @@ class StoreBoatRequest extends FormRequest
     public function rules()
     {
         return [
-            "location_id"=>"required",
-            "name"=>"required|unique:boats,name",
-            "seatscount"=>"required",
-            "price_adult"=>"required",
-            "price_child"=>"required",
-            "image"=>"required",
-            "status"=>"required"
+            'location_id'=>'required',
+            'name'=>'required|unique:boats,name',
+            'seatscount'=>'required',
+            'price_adult'=>'required',
+            'price_child'=>'required',
+            'image'=>'required',
+            'status'=>'required'
         ];
     }
 }

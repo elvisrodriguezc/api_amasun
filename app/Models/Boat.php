@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Boat extends Model
 {
+    use HasFactory;
     protected $fillable = [
         'location_id',
         'name',
@@ -16,7 +17,6 @@ class Boat extends Model
         'image',
         'status'
     ];
-    use HasFactory;
     public function location()
     {
         return $this->belongsTo(Location::class);
