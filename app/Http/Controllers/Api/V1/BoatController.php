@@ -20,7 +20,7 @@ class BoatController extends Controller
      */
     public function index()
     {
-        return (new BoatCollection(Boat::all()))
+        return (new BoatCollection(Boat::paginate()))
         ->additional([
             'msg'=>'Boat successful listed',
             'Error'=>0,

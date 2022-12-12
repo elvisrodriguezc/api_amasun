@@ -13,8 +13,7 @@ class StoreBoatRequest extends FormRequest
      */
     public function authorize()
     {
-        // return true;
-        return auth()->check();
+        return true;
     }
 
     /**
@@ -26,12 +25,12 @@ class StoreBoatRequest extends FormRequest
     {
         return [
             'location_id'=>'required',
-            'name'=>'required|unique:boats,name',
+            'name'=>'required',
             'seatscount'=>'required',
             'price_adult'=>'required',
             'price_child'=>'required',
-            'image'=>'required',
-            'status'=>'required'
+            'image',
+            'status'
         ];
     }
 }

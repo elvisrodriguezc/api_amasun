@@ -46,7 +46,9 @@ class DepartureController extends Controller
                 }
             }
         } else {
-            $Departures = new DepartureCollection(Departure::latest()->paginate());
+            $Departure_query = Departure::with(['location','boat','service']);
+            $Departure_query;
+            $Departures = $Departure_query->get();
         }
         // if ($request->sortBy && in_array($request->sortBy,['id','created_at'])){
         //     $sortBy = $request->sortBy;

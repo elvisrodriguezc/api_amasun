@@ -22,6 +22,7 @@ class CreateDeparturesTable extends Migration
             $table->date('depart_date');
             $table->time('depart_time');
             $table->integer('seats_enable');
+            $table->integer('seats_available');
             $table->time('duration');
             $table->decimal('price_adult');
             $table->decimal('price_child');

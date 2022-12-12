@@ -34,7 +34,7 @@ class LocationController extends Controller
         // Location::create($request->all());
         return (new LocationResource(Location::create($request->all())))
         ->additional([
-            'msg'=>'Location successfull stored',
+            'msg'=>'Excelente!!, Se ha Guardado.',
             'Error'=>0,
         ]);
     }
@@ -66,7 +66,7 @@ class LocationController extends Controller
         $location->update($request->all());
         return (new LocationResource($location))
         ->additional([
-            'msg'=>'Location successfull Updated',
+            'msg'=>'Excelente!!, Se ha Modificado.',
             'Error'=>0,
         ]);
     }
@@ -82,7 +82,7 @@ class LocationController extends Controller
         $location->delete();
         return (new LocationResource($location))
         ->additional([
-            'msg'=>'Location successfull deleted',
+            'msg'=>'Atención!!, Se ha eliminado.',
             'Error'=>0,
         ]);
     }
